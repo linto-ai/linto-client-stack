@@ -9,8 +9,9 @@ fi
 
 echo "The script will now install the client modules on the device ..."
 echo "Installing dependencies ..."
-sudo apt-get install -y portaudio19-dev libasound2-dev python3-pip libttspico-utils sox wget tar
+sudo apt-get install -y portaudio19-dev libasound2-dev python3-pip libttspico-utils sox wget tar git
 
+cd $TARGET_DIR
 # UI MODULE
 $DIR/setup_ui.sh
 
@@ -19,6 +20,11 @@ $DIR/setup_tts.sh
 
 # COMMAND MODULE 
 $DIR/setup_command.sh
+
+#MODEL
+git clone https://github.com/linto-ai/linto-models.git
+rm -rf model
+mv linto-models model
 
 echo "Copying services ..."
 cp $DIR/services/linto_ui.service /lib/systemd/system/
@@ -29,4 +35,4 @@ echo "Enabling services ..."
 systemctl daemon-reload
 systemctl enable linto_ui linto_tts linto_command
 
-echo "... DONE"
+echo "... DONE (Reboot needed to start the modules)"

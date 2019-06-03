@@ -1,0 +1,22 @@
+[Unit]
+Description=LinTO UI service
+After=pulseaudio.service
+
+[Service]
+Type=idle
+Restart=always
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+
+ExecStart=/usr/bin/startx /home/pi/linto_ui/linto_ui -fs
+
+StandardInput=tty
+StandardOutput=null
+TTYPath=/dev/tty2
+TTYVTDisallocate=yes
+TTYReset=yes
+#TTYVHangup=yes
+
+[Install]
+WantedBy=multi-user.target

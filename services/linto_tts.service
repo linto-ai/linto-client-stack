@@ -1,0 +1,13 @@
+[Unit]
+Description=LinTO tts service
+After=pulseaudio.service
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/tts_client/tts_client --debug
+
+[Install]
+WantedBy=multi-user.target

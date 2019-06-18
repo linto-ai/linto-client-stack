@@ -11,6 +11,7 @@ usage () {
 if [ "$1" = "--help" ]
 then
 	usage
+	exit 1
 fi
 
 if [ -z "$1" ]

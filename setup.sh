@@ -51,7 +51,6 @@ fi
 echo "Detected architecture is $ARCH"
 export ARCH
 
-cd $TARGET_DIR
 # UI MODULE
 $DIR/setup_ui.sh $TARGET_DIR
 

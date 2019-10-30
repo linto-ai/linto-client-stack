@@ -73,7 +73,7 @@ then
 	echo "Copying services ..."
 	cp $DIR/services/linto_ui.service /lib/systemd/system/
 	cp $DIR/services/linto_tts.service /lib/systemd/system/
-	cp $DIR/services/linto_command.service /libash get argumentsb/systemd/system/
+	cp $DIR/services/linto_command.service /lib/systemd/system/
 
 	echo "Enabling services ..."
 	systemctl daemon-reload

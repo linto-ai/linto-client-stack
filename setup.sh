@@ -62,8 +62,9 @@ $DIR/setup_command.sh $TARGET_DIR
 
 #MODEL
 git clone https://github.com/linto-ai/linto-models.git
-rm -rf model
-mv linto-models model
+rm -rf $TARGET_DIR/model
+mv linto-models $TARGET_DIR/model
+rm -rflinto-models
 
 echo "SUCCESS: Modules have been successfully downloaded"
 

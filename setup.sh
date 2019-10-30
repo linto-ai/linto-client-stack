@@ -36,7 +36,7 @@ fi
 
 echo "The script will now install the client modules on the device ..."
 echo "Installing dependencies ..."
-sudo apt-get install -y portaudio19-dev libasound2-dev python3-pip libttspico-utils sox wget tar git
+sudo apt-get install -y portaudio19-dev libasound2-dev python3-pip sox wget tar git
 
 if [ ! $ARCH ]
 then
@@ -53,13 +53,13 @@ export ARCH
 
 cd $TARGET_DIR
 # UI MODULE
-$DIR/setup_ui.sh
+$DIR/setup_ui.sh $TARGET_DIR
 
 # TTS_MODULE
-$DIR/setup_tts.sh
+$DIR/setup_tts.sh $TARGET_DIR
 
 # COMMAND MODULE 
-$DIR/setup_command.sh
+$DIR/setup_command.sh $TARGET_DIR
 
 #MODEL
 git clone https://github.com/linto-ai/linto-models.git

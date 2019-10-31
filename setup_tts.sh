@@ -4,8 +4,7 @@ REPO_URL=linto-ai/linto-tts-module
 LATEST_TAG=$(curl --silent "https://github.com/$REPO_URL/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#';)
 VERSION=$(echo $LATEST_TAG | sed -e "s/v//")
 ARCHIVE_URI=https://github.com/$REPO_URL/releases/download/$LATEST_TAG/linto_tts-$VERSION-$ARCH.tar.gz
-echo $ARCHIVE_URI
-exit
+
 #Install last version
 echo "Downloading $ARCHIVE_URI"
 wget -P $DEST $ARCHIVE_URI

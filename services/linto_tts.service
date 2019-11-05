@@ -7,7 +7,6 @@ Type=simple
 User=pi
 Group=pi
 WorkingDirectory=/home/pi
-Environment="KWS_TH=0.5"
 ExecStart=/home/pi/tts_client/tts_client --debug
 
 [Install]

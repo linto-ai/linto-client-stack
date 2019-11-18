@@ -3,7 +3,14 @@ DEST=$1
 REPO_URL=linto-ai/linto-tts-module
 LATEST_TAG=$(curl --silent "https://github.com/$REPO_URL/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#';)
 VERSION=$(echo $LATEST_TAG | sed -e "s/v//")
-ARCHIVE_URI=https://github.com/$REPO_URL/releases/download/$LATEST_TAG/linto_tts-$VERSION-$ARCH.tar.gz
+
+if [ $ARCH = "armv7l" ] 
+then
+    RELEASE=-$(lsb_release -a | grep Codename | sed -e "s/Codename:[ |\t]*//")
+fi
+
+echo "Getting command module version $LATEST_TAG for $ARCH on $RELEASE"
+ARCHIVE_URI=https://github.com/$REPO_URL/releases/download/$LATEST_TAG/linto_tts-$VERSION-$ARCH-$RELEASE.tar.gz
 
 #Install last version
 echo "Downloading $ARCHIVE_URI"

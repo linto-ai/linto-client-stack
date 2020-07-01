@@ -64,8 +64,8 @@ $DIR/setup_command.sh $TARGET_DIR
 wget http://dl.linto.ai/downloads/model-distribution/KWS/linto-latest.tar.gz
 rm -rf $TARGET_DIR/model
 mkdir $TARGET_DIR/model
-tar xzf latest.tar.gz -C $TARGET_DIR/model/
-rm latest.tar.gz
+tar xzf linto-latest.tar.gz -C $TARGET_DIR/model/
+rm linto-latest.tar.gz
 
 echo "SUCCESS: Modules have been successfully downloaded"
 

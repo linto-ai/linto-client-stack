@@ -61,10 +61,11 @@ $DIR/setup_tts.sh $TARGET_DIR
 $DIR/setup_command.sh $TARGET_DIR
 
 #MODEL
-git clone https://github.com/linto-ai/linto-models.git
+wget http://dl.linto.ai/downloads/model-distribution/KWS/linto-latest.tar.gz
 rm -rf $TARGET_DIR/model
-mv linto-models $TARGET_DIR/model
-rm -rflinto-models
+mkdir $TARGET_DIR/model
+tar xzf latest.tar.gz -C $TARGET_DIR/model/
+rm latest.tar.gz
 
 echo "SUCCESS: Modules have been successfully downloaded"
 
